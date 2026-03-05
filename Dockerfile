@@ -13,7 +13,6 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # Copy the current directory contents into the container at /code
 COPY ./app /code/app
-COPY .env /code/.env
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
