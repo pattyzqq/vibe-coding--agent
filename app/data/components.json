@@ -1,0 +1,77 @@
+[
+  {
+    "name": "OLED 0.96寸显示屏",
+    "pins": {
+      "SDA": "GPIO1",
+      "SCL": "GPIO2"
+    },
+    "init_code": "from machine import Pin, SoftI2C\nimport ssd1306\ni2c = SoftI2C(scl=Pin(2), sda=Pin(1))\noled = ssd1306.SSD1306_I2C(128, 64, i2c)"
+  },
+  {
+    "name": "DHT11温湿度传感器",
+    "pins": {
+      "DAT": "GPIO4"
+    },
+    "init_code": "import dht\nfrom machine import Pin\nsensor = dht.DHT11(Pin(4))"
+  },
+  {
+    "name": "HC-SR04超声波传感器",
+    "pins": {
+      "Trig": "GPIO5",
+      "Echo": "GPIO6"
+    },
+    "init_code": "from machine import Pin\ntrig = Pin(5, Pin.OUT)\necho = Pin(6, Pin.IN)"
+  },
+  {
+    "name": "RGB全彩LED",
+    "pins": {
+      "R": "GPIO12",
+      "G": "GPIO13",
+      "B": "GPIO14"
+    },
+    "init_code": "from machine import Pin, PWM\nr = PWM(Pin(12), freq=1000)\ng = PWM(Pin(13), freq=1000)\nb = PWM(Pin(14), freq=1000)"
+  },
+  {
+    "name": "光敏电阻",
+    "pins": {
+      "AO": "GPIO8"
+    },
+    "init_code": "from machine import Pin, ADC\nadc = ADC(Pin(8))\nadc.atten(ADC.ATTN_11DB)"
+  },
+  {
+    "name": "SG90舵机",
+    "pins": {
+      "PWM": "GPIO17"
+    },
+    "init_code": "from machine import Pin, PWM\nservo = PWM(Pin(17), freq=50)"
+  },
+  {
+    "name": "直流电机风扇",
+    "pins": {
+      "IN1": "GPIO18",
+      "IN2": "GPIO19"
+    },
+    "init_code": "from machine import Pin\nmotor_in1 = Pin(18, Pin.OUT)\nmotor_in2 = Pin(19, Pin.OUT)"
+  },
+  {
+    "name": "蜂鸣器",
+    "pins": {
+      "IN": "GPIO20"
+    },
+    "init_code": "from machine import Pin, PWM\nbuzzer = PWM(Pin(20), freq=1000)"
+  },
+  {
+    "name": "PIR人体红外传感器",
+    "pins": {
+      "OUT": "GPIO7"
+    },
+    "init_code": "from machine import Pin\npir = Pin(7, Pin.IN)"
+  },
+  {
+    "name": "大按键",
+    "pins": {
+      "OUT": "GPIO15"
+    },
+    "init_code": "from machine import Pin\nbtn = Pin(15, Pin.IN, Pin.PULL_UP)"
+  }
+]
